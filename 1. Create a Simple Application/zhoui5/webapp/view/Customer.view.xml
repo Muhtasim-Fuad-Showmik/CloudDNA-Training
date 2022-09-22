@@ -1,0 +1,76 @@
+<mvc:View controllerName="ai.clouddna.training00.zhoui5.controller.Customer"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <f:SimpleForm id="SimpleFormChange354"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>title}"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false" >
+                <f:content>
+                    <!-- Customer Id Input Field -->
+                    <Label id="app_label_customerid" text="{i18n>app.customerId}"
+                        labelFor="app_text_customerid"/>
+                    <Input id="app_input_customerid" value="{/customerid}"/>
+
+                    <!-- First Name Input Field -->
+                    <Label id="app_label_firstname" text="{i18n>app.firstname}"
+                        labelFor="app_text_firstname"/>
+                    <Input id="app_input_firstname" value="{/firstname}"/>
+
+                    <!-- Last Name Input Field -->
+                    <Label id="app_label_lastname" text="{i18n>app.lastname}"
+                        labelFor="app_text_lastname"/>
+                    <Input id="app_input_lastname" value="{/lastname}"/>
+
+                    <!-- Title Input Field -->
+                    <Label id="app_label_title" text="{i18n>app.title}"
+                        labelFor="app_text_title"/>
+                    <Input id="app_input_title" value="{/title}"/>
+
+                    <!-- Gender Input Field -->
+                    <Label id="app_label_gender" text="{i18n>app.gender}"
+                        labelFor="app_select_gender"/>
+                    <Select id="app_select_gender" selectedKey="{/gender}"
+                        items="{genderModel>/genders}">
+                        <items>
+                            <core:Item id="genderId" key="{genderModel>}"
+                                text="{= ${genderModel>}==='Female' ? ${i18n>female} : ${i18n>male}}"/>
+                        </items>
+                    </Select>
+
+                    <!-- Email Input Field -->
+                    <Label id="app_label_email" text="{i18n>app.email}"
+                        labelFor="app_text_email"/>
+                    <Input id="app_input_email" value="{/email}"/>
+
+                    <!-- Phone Input Field -->
+                    <Label id="app_label_phone" text="{i18n>app.phone}"
+                        labelFor="app_text_phone"/>
+                    <Input id="app_input_phone" value="{/phone}"/>
+
+                    <!-- Website Input Field -->
+                    <Label id="app_label_website" text="{i18n>app.website}"
+                        labelFor="app_text_website"/>
+                    <Input id="app_input_website" value="{/website}"/>
+                </f:content>
+		</f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>
