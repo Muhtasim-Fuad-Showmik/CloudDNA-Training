@@ -51,7 +51,7 @@
                         items="{genderModel>/genders}">
                         <items>
                             <core:Item id="genderId" key="{genderModel>}"
-                                text="{= ${genderModel>}==='Female' ? ${i18n>female} : ${i18n>male}}"/>
+                                text="{path: 'genderModel>', formatter: '.genderFormatter'}"/>
                         </items>
                     </Select>
 
