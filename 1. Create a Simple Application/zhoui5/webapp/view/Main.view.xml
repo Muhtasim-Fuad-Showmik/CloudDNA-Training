@@ -1,0 +1,62 @@
+<mvc:View
+	controllerName="ai.clouddna.training00.zhoui5.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.f"
+	displayBlock="true"
+>
+    <Page id="page" title="{i18n>main.title}">
+        <content>
+            <Table id="main_table" headerText="{i18n>main.table.title}" items="{/customers}">
+                <columns>
+                    <Column id="main_column_customerid">
+                        <Text id="main_text_customerid" text="{i18n>app.customerid}"/>
+                    </Column>
+
+                    <Column id="main_column_firstname">
+                        <Text id="main_text_firstname" text="{i18n>app.firstname}"/>
+                    </Column>
+                    
+                    <Column id="main_column_lastname">
+                        <Text id="main_text_lastname" text="{i18n>app.lastname}"/>
+                    </Column>
+                    
+                    <Column id="main_column_title" minScreenWidth="Desktop">
+                        <Text id="main_text_title" text="{i18n>app.title}"/>
+                    </Column>
+
+                    <Column id="main_column_gender" minScreenWidth="Desktop">
+                        <Text id="main_text_gender" text="{i18n>app.gender}"/>
+                    </Column>
+
+                    <Column id="main_column_email" minScreenWidth="Desktop">
+                        <Text id="main_text_email" text="{i18n>app.email}"/>
+                    </Column>
+                    
+                    <Column id="main_column_phone" minScreenWidth="Desktop">
+                        <Text id="main_text_phone" text="{i18n>app.phone}"/>
+                    </Column>
+                        
+                    <Column id="main_column_website" minScreenWidth="Desktop">
+                        <Text id="main_text_website" text="{i18n>app.website}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <ObjectIdentifier title="{customerid}" />
+                            <Text text="{firstname}" />
+                            <Text text="{lastname}" />
+                            <Text text="{title}" />
+                            <Text text="{= ${gender} === 'Female' ? ${i18n>female} : ${i18n>male}}" />
+                            <Text text="{email}" />
+                            <Text text="{phone}" />
+                            <Link text="{website}" href="https://{website}" target="_blank" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
