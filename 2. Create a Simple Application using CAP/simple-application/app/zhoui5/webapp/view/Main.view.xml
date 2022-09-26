@@ -1,0 +1,64 @@
+<mvc:View
+	controllerName="ai.clouddna.training00.zhoui5.controller.Main"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true"
+>
+    <Page id="page" title="{i18n>main.title}">
+        <content>
+            <Table id="main_table" headerText="{i18n>main.table.title}" items="{/Customer}">
+                <columns>
+                    <Column id="main_column_customerid">
+                        <Text id="main_text_customerid" text="{i18n>app.customerId}"/>
+                    </Column>
+
+                    <Column id="main_column_firstname">
+                        <Text id="main_text_firstname" text="{i18n>app.firstname}"/>
+                    </Column>
+                    
+                    <Column id="main_column_lastname">
+                        <Text id="main_text_lastname" text="{i18n>app.lastname}"/>
+                    </Column>
+                    
+                    <Column id="main_column_title" minScreenWidth="Desktop">
+                        <Text id="main_text_title" text="{i18n>app.title}"/>
+                    </Column>
+
+                    <Column id="main_column_gender" minScreenWidth="Desktop">
+                        <Text id="main_text_gender" text="{i18n>app.gender}"/>
+                    </Column>
+
+                    <Column id="main_column_email" minScreenWidth="Desktop">
+                        <Text id="main_text_email" text="{i18n>app.email}"/>
+                    </Column>
+                    
+                    <Column id="main_column_phone" minScreenWidth="Desktop">
+                        <Text id="main_text_phone" text="{i18n>app.phone}"/>
+                    </Column>
+                        
+                    <Column id="main_column_website" minScreenWidth="Desktop">
+                        <Text id="main_text_website" text="{i18n>app.website}"/>
+                    </Column>
+                    <Column id="main_column_delete">
+                        <Text id="main_text_delete" text="{i18n>delete}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="customersList">
+                        <cells>
+                            <ObjectIdentifier id="customersListObjectIdentifier" title="{CustomerId}" />
+                            <Text id="firstnameText" text="{FirstName}" />
+                            <Text id="lastnameText" text="{LastName}" />
+                            <Text id="titleText" text="{AcademicTitle}" />
+                            <Text id="genderText" text="{= ${Gender} === 'female' ? ${i18n>female} : ${i18n>male}}" />
+                            <Text id="emailText" text="{Email}" />
+                            <Text id="phoneText" text="{Phone}" />
+                            <Link id="websiteText" text="{Website}" href="https://{Website}" target="_blank" />
+                            <Button icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

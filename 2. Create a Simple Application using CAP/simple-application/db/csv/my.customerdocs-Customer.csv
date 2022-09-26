@@ -1,0 +1,4 @@
+CustomerId;FirstName;LastName;AcademicTitle;Phone;Email;Gender;Website
+1000001;Max;Mustermann;Dr.;+43676123123;max.mustermann@clouddna.at;male;www.clouddna.at
+1000002;John;Doe;;0622/12 22 121;john.doe@mail.com;male;www.john-doe.com
+1000003;Maria;Musterfrau;MSc;0633/33 31 313;mmuster@clouddna.at;female;www.mmuster.at
