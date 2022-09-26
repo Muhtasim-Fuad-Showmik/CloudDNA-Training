@@ -15,11 +15,17 @@ sap.ui.define([
             },
 
             onDeleteButtonPressed: function (oEvent) {
+                this._delete(oEvent.getSource());
+            },
+
+            onDeletePressed: function (oEvent) {
+                this._delete(oEvent.getParameters().listItem);
+            },
+
+            _delete: function (oListItem) {
                 let oModel = this.getView().getModel();
                 let oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
-
-                let oSource = oEvent.getSource();
-                let sPath = oSource.getBindingContext().getPath();
+                let sPath = oListItem.getBindingContext().getPath();
 
                 MessageBox.warning(oResourceBundle.getText("sureToDeleteQuestion"), {
                     title: oResourceBundle.getText("sureToDeleteTitle"),

@@ -6,7 +6,8 @@
 >
     <Page id="page" title="{i18n>main.title}">
         <content>
-            <Table id="main_table" headerText="{i18n>main.table.title}" items="{/Customer}">
+            <Table id="main_table" headerText="{i18n>main.table.title}" items="{/Customer}"
+                mode="Delete" delete="onDeletePressed">
                 <columns>
                     <Column id="main_column_customerid">
                         <Text id="main_text_customerid" text="{i18n>app.customerId}"/>
@@ -39,9 +40,9 @@
                     <Column id="main_column_website" minScreenWidth="Desktop">
                         <Text id="main_text_website" text="{i18n>app.website}"/>
                     </Column>
-                    <Column id="main_column_delete">
+                    <!-- <Column id="main_column_delete">
                         <Text id="main_text_delete" text="{i18n>delete}" />
-                    </Column>
+                    </Column> -->
                 </columns>
                 <items>
                     <ColumnListItem id="customersList">
@@ -54,7 +55,7 @@
                             <Text id="emailText" text="{Email}" />
                             <Text id="phoneText" text="{Phone}" />
                             <Link id="websiteText" text="{Website}" href="https://{Website}" target="_blank" />
-                            <Button icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed" />
+                            <!-- <Button icon="sap-icon://delete" type="Reject" press="onDeleteButtonPressed" /> -->
                         </cells>
                     </ColumnListItem>
                 </items>
