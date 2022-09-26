@@ -33,7 +33,11 @@ sap.ui.define([
                     emphasizedAction: MessageBox.Action.OK,
                     onClose: function(oAction) {
                         if(MessageBox.Action.OK === oAction) {
-                            oModel.delete(sPath);
+                            oModel.delete(sPath).then(function () {
+                                MessageBox.success(oResourceBundle.getText("dialog.delete.success"));
+                            }.bind(this), function(oError) {
+                                MessageBox.success(oError.message);
+                            });
                         }
                     }
                 });
