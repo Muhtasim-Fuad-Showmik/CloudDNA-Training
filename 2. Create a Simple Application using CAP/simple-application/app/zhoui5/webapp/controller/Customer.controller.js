@@ -109,7 +109,7 @@ sap.ui.define([
                 let sPath = oEvent.getParameters().arguments.path;
                 this.sCustomerPath = "/" + sPath;
                 this.getView().bindElement(this.sCustomerPath);
-                this.getView().getElementBinding().refresh(true);
+                // this.getView().getElementBinding().refresh(true);
             },
 
             genderFormatter: function (sKey) {

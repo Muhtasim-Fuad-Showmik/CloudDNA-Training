@@ -37,7 +37,7 @@
 
 			<!-- Title Text Field -->
 			<Label id="display_label_title" text="{i18n>app.title}" labelFor="display_text_title" />
-			<Text id="display_Text_title" text="{Title}" />
+			<Text id="display_Text_title" text="{AcademicTitle}" />
 
 			<!-- Gender Text Field -->
 			<Label id="display_label_gender" text="{i18n>app.gender}" labelFor="display_select_gender" />
