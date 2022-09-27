@@ -79,11 +79,10 @@
                     "earlyRequests": true
                 }
             },
-			"genderModel": {
+            "genderModel": {
                 "type": "sap.ui.model.json.JSONModel",
                 "uri": "data/genders.json"
             }
-
         },
         "resources": {
             "css": [
@@ -105,19 +104,18 @@
             },
             "routes": [
                 {
-                    "name": "RouteCustomer",
-                    "pattern": "customer",
-                    "target": "TargetCustomer"
+                    "name": "Customer",
+                    "pattern": "Customer/{path}",
+                    "target": "Customer"
                 },
                 {
                     "name": "Main",
                     "pattern": "",
                     "target": "Main"
                 }
-
             ],
             "targets": {
-                "TargetCustomer": {
+                "Customer": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,

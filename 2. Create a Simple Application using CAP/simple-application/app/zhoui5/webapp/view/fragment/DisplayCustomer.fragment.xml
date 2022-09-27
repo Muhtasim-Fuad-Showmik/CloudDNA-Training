@@ -25,35 +25,35 @@
 		<f:content>
 			<!-- Customer Id Text Field -->
 			<Label id="display_label_customerid" text="{i18n>app.customerId}" labelFor="display_text_customerid" />
-			<Text id="display_Text_customerid" text="{/customerid}" />
+			<Text id="display_Text_customerid" text="{CustomerId}" />
 
 			<!-- First Name Text Field -->
 			<Label id="display_label_firstname" text="{i18n>app.firstname}" labelFor="display_text_firstname" />
-			<Text id="display_Text_firstname" text="{/firstname}" />
+			<Text id="display_Text_firstname" text="{FirstName}" />
 
 			<!-- Last Name Text Field -->
 			<Label id="display_label_lastname" text="{i18n>app.lastname}" labelFor="display_text_lastname" />
-			<Text id="display_Text_lastname" text="{/lastname}" />
+			<Text id="display_Text_lastname" text="{LastName}" />
 
 			<!-- Title Text Field -->
 			<Label id="display_label_title" text="{i18n>app.title}" labelFor="display_text_title" />
-			<Text id="display_Text_title" text="{/title}" />
+			<Text id="display_Text_title" text="{Title}" />
 
 			<!-- Gender Text Field -->
 			<Label id="display_label_gender" text="{i18n>app.gender}" labelFor="display_select_gender" />
-            <Text id="display_text_gender" text="{= ${gender} === 'Female' ? ${i18n>female} : ${i18n>male}}"/>
+            <Text id="display_text_gender" text="{= ${Gender} === 'female' ? ${i18n>female} : ${i18n>male}}"/>
 
 			<!-- Email Text Field -->
 			<Label id="display_label_email" text="{i18n>app.email}" labelFor="display_text_email" />
-			<Text id="display_Text_email" text="{/email}" />
+			<Text id="display_Text_email" text="{Email}" />
 
 			<!-- Phone Text Field -->
 			<Label id="display_label_phone" text="{i18n>app.phone}" labelFor="display_text_phone" />
-			<Text id="display_Text_phone" text="{/phone}" />
+			<Text id="display_Text_phone" text="{Phone}" />
 
 			<!-- Website Text Field -->
 			<Label id="display_label_website" text="{i18n>app.website}" labelFor="display_text_website" />
-			<Text id="display_Text_website" text="{/website}" />
+			<Link id="display_Link_website" text="{Website}" href="https://{Website}" target="_blank" />
 		</f:content>
 	</f:SimpleForm>
 </c:FragmentDefinition>

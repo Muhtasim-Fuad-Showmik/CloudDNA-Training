@@ -4,7 +4,8 @@
     displayBlock="true">
     <Page id="page" title="{i18n>title}">
         <customHeader>
-            <OverflowToolbar>
+            <OverflowToolbar id="CustomerViewOverflowToolbar">
+                <Button id="customer_back_button" type="Back" press="onNavBack" visible="{= !${editModel>/editMode}}" />
                 <Title text="{i18n>title}"/>
                 <ToolbarSpacer />
                 <Button 

@@ -41,6 +41,22 @@ sap.ui.define([
                         }
                     }
                 });
+            },
+            
+            onListItemPressed: function (oEvent) {
+                // let oItem, oCtx;
+                // oItem = oEvent.getSource();
+                // oCtx = oItem.getBindingContext();
+                // this.getOwnerComponent().getRouter().navTo("Customer", {
+                //     customerId: oCtx.getProperty("CustomerId")
+                // });
+
+                let sPath = oEvent.getSource().getBindingContext().getPath();
+                let oRouter = this.getOwnerComponent().getRouter();
+
+                oRouter.navTo("Customer", {
+                    path: sPath.split("/")[1]
+                });
             }
         });
     });

@@ -45,7 +45,7 @@
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem id="customersList">
+                    <ColumnListItem id="customersList" type="Navigation" press="onListItemPressed">
                         <cells>
                             <ObjectIdentifier id="customersListObjectIdentifier" title="{CustomerId}" />
                             <Text id="firstnameText" text="{FirstName}" />
