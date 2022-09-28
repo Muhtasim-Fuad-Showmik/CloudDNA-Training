@@ -76,7 +76,8 @@
                     "synchronizationMode": "None",
                     "operationMode": "Server",
                     "autoExpandSelect": true,
-                    "earlyRequests": true
+                    "earlyRequests": true,
+                    "groupId": "$auto"
                 }
             },
             "genderModel": {
@@ -112,7 +113,15 @@
                     "name": "Main",
                     "pattern": "",
                     "target": "Main"
+                },
+                {
+                    "name": "CreateCustomer",
+                    "pattern": "createcustomer",
+                    "target": [
+                        "CreateCustomer"
+                    ]
                 }
+
             ],
             "targets": {
                 "Customer": {
@@ -128,6 +137,13 @@
                     "classControlAggregation": false,
                     "viewId": "Main",
                     "viewName": "Main"
+                },
+                "CreateCustomer": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "classControlAggregation": false,
+                    "viewId": "CreateCustomer",
+                    "viewName": "CreateCustomer"
                 }
             }
         },

@@ -1,0 +1,104 @@
+<mvc:View controllerName="ai.clouddna.training00.zhoui5.controller.CreateCustomer"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+    displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <customHeader>
+            <OverflowToolbar id="CustomerViewOverflowToolbar">
+                <Button id="customer_back_button" type="Back" press="onNavBack" visible="true" />
+                <Title text="{i18n>title}"/>
+                <ToolbarSpacer />
+                <Button 
+                    id="app_edit_button" 
+                    text="{i18n>edit}" 
+                    type="Emphasized" 
+                    icon="sap-icon://edit" 
+                    press="onEditPressed" 
+                    visible="{= !${editMode>/editMode}}"/>
+            </OverflowToolbar>
+        </customHeader>
+        <content>
+            <f:SimpleForm
+                id="edit_simpleform"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="{i18n>title}"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <!-- Customer Id Input Field -->
+                    <!-- <Label id="edit_label_customerid" text="{i18n>app.customerId}" labelFor="edit_text_customerid" />
+                    <Input id="edit_input_customerid" type="Number" /> -->
+
+                    <!-- First Name Input Field -->
+                    <Label id="edit_label_firstname" text="{i18n>app.firstname}" labelFor="edit_text_firstname" />
+                    <Input id="edit_input_firstname"/>
+
+                    <!-- Last Name Input Field -->
+                    <Label id="edit_label_lastname" text="{i18n>app.lastname}" labelFor="edit_text_lastname" />
+                    <Input id="edit_input_lastname"/>
+
+                    <!-- Title Input Field -->
+                    <Label id="edit_label_title" text="{i18n>app.title}" labelFor="edit_text_title" />
+                    <Input id="edit_input_title"/>
+
+                    <!-- Gender Input Field -->
+                    <Label id="edit_label_gender" text="{i18n>app.gender}" labelFor="edit_select_gender" />
+                    <Select id="edit_select_gender" selectedKey="0" items="{genderModel>/genders}">
+                        <items>
+                            <c:Item id="genderId" key="{genderModel>key}" text="{path: 'genderModel>text', targetType: 'any', formatter: '.genderFormatter'}" />
+                        </items>
+                    </Select>
+
+                    <!-- Email Input Field -->
+                    <Label id="edit_label_email" text="{i18n>app.email}" labelFor="edit_text_email" />
+                    <Input id="edit_input_email"/>
+
+                    <!-- Phone Input Field -->
+                    <Label id="edit_label_phone" text="{i18n>app.phone}" labelFor="edit_text_phone" />
+                    <Input id="edit_input_phone" />
+
+                    <!-- Website Input Field -->
+                    <Label id="edit_label_website" text="{i18n>app.website}" labelFor="edit_text_website" />
+                    <Input id="edit_input_website"/>
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button
+                        id="app_save_button"
+                        text="{i18n>save}"
+                        type="Accept"
+                        icon="sap-icon://save"
+                        press="onSavePressed"
+                        visible="{editModel>/editMode}"
+                        />
+                    <Button
+                        id="app_cancel_button"
+                        text="{i18n>cancel}"
+                        type="Reject"
+                        icon="sap-icon://cancel"
+                        press="onCancelPressed"
+                        visible="{editModel>/editMode}"
+                        />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

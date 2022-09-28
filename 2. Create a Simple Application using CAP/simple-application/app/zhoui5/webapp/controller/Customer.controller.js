@@ -89,23 +89,6 @@ sap.ui.define([
             },
 
             _onPatternMatched: function(oEvent){
-                // let oArgs, oView;
-                // oArgs = oEvent.getParameter("arguments");
-                // oView = this.getView();
-
-                // oView.bindElement({
-                //     path: "/Customer(" + oArgs.customerId + ")",
-                //     events: {
-                //         change: this._onBindingChange.bind(this),
-                //         dataRequested: function (oEvent) {
-                //             oView.setBusy(true);
-                //         },
-                //         dataReceieved: function (oEvent) {
-                //             oView.setBusy(false);
-                //         }
-                //     }
-                // });
-                console.log("CHecking pattern matched");
                 let sPath = oEvent.getParameters().arguments.path;
                 this.sCustomerPath = "/" + sPath;
                 this.getView().bindElement(this.sCustomerPath);

@@ -11,8 +11,12 @@ sap.ui.define([
 
         return Controller.extend("ai.clouddna.training00.zhoui5.controller.Main", {
             onInit: function () {
-
             },
+
+            onCreatePressed: function () {
+                let oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("CreateCustomer", null, false);
+            },            
 
             onDeleteButtonPressed: function (oEvent) {
                 this._delete(oEvent.getSource());

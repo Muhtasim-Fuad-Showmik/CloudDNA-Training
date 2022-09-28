@@ -1,4 +1,5 @@
 <mvc:View
+    id="mainViewId"
 	controllerName="ai.clouddna.training00.zhoui5.controller.Main"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
@@ -8,6 +9,16 @@
         <content>
             <Table id="main_table" headerText="{i18n>main.table.title}" items="{/Customer}">
                 <!-- mode="Delete" delete="onDeletePressed" -->
+                <headerToolbar>
+                    <OverflowToolbar
+                        id="MainViewTableOverflowToolbarId"
+                        asyncMode="false"
+                    >
+                        <Title id="MainViewTableTitleId" text="{i18n>main.table.title}"/>
+                        <ToolbarSpacer id="MainViewToolbarSpacerId" />
+                        <Button id="main_button_create" icon="sap-icon://add" type="Accept" text="{i18n>create}" press="onCreatePressed" />
+                    </OverflowToolbar>
+                </headerToolbar>    
                 <columns>
                     <Column id="main_column_customerid">
                         <Text id="main_text_customerid" text="{i18n>app.customerId}"/>
