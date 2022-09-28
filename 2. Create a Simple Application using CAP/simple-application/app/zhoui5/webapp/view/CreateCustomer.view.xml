@@ -60,7 +60,8 @@
                     <Label id="edit_label_gender" text="{i18n>app.gender}" labelFor="edit_select_gender" />
                     <Select id="edit_select_gender" selectedKey="0" items="{genderModel>/genders}">
                         <items>
-                            <c:Item id="genderId" key="{genderModel>key}" text="{path: 'genderModel>text', targetType: 'any', formatter: '.genderFormatter'}" />
+                            <c:Item id="genderId" key="{genderModel>key}" text="{path: 'genderModel>text', 
+                                targetType: 'any', formatter: '.formatter.genderFormatter'}" />
                         </items>
                     </Select>
 
