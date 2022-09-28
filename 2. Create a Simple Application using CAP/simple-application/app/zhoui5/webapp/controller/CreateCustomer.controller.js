@@ -56,7 +56,7 @@ sap.ui.define([
                 let AcademicTitle = this.byId("edit_input_title").getValue();
                 let GenderSelect = this.byId("edit_select_gender");
                 let SelectedGender = GenderSelect.getSelectedItem();
-                let Gender = SelectedGender ? SelectedGender.getText() : "";
+                let Gender = SelectedGender ? SelectedGender.getKey() : "0";
                 let Email = this.byId("edit_input_email").getValue();
                 let Phone = this.byId("edit_input_phone").getValue();
                 let Website = this.byId("edit_input_website").getValue();

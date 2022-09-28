@@ -61,7 +61,7 @@
                             <Text id="firstnameText" text="{FirstName}" />
                             <Text id="lastnameText" text="{LastName}" />
                             <Text id="titleText" text="{AcademicTitle}" />
-                            <Text id="genderText" text="{= ${Gender} === 'Female' ? ${i18n>female} : ${i18n>male}}" />
+                            <Text id="genderText" text="{= ${Gender} === '1' ? ${i18n>female} : ${i18n>male}}" />
                             <Text id="emailText" text="{Email}" />
                             <Text id="phoneText" text="{Phone}" />
                             <Link id="websiteText" text="{Website}" href="https://{Website}" target="_blank" />
