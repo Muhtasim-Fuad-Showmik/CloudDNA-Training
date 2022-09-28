@@ -13,18 +13,31 @@ sap.ui.define([
 
         return Controller.extend("ai.clouddna.training00.zhoui5.controller.Customer", {
             _fragmentList: {},
+            bCreate: false,
 
             onInit: function () {
                 let oEditModel = new JSONModel({
                     editMode: false
                 });
 
+                let oCustomerModel = new JSONModel({
+                    CustomerId: 0,
+                    FirstName: "",
+                    LastName: "",
+                    AcademicTitle: "",
+                    Gender: "",
+                    Email: "",
+                    Phone: "",
+                    Website: ""
+                });
+
                 this.getView().setModel(oEditModel, "editModel");
+                this.getView().setModel(oCustomerModel, "customerModel");
 
                 this._showCustomerFragment("DisplayCustomer");
 
-                let oRouter = this.getOwnerComponent().getRouter().getRoute("Customer")
-                    .attachPatternMatched(this._onPatternMatched, this);
+                let oRouter = this.getOwnerComponent().getRouter();
+                oRouter.getRoute("Customer").attachPatternMatched(this._onPatternMatched, this);
             },
 
             _showCustomerFragment: function (sFragmentName) {
@@ -55,7 +68,14 @@ sap.ui.define([
             },
 
             onCancelPressed: function () {
-                this._toggleEdit(false);
+                let oModel = this.getView().getModel();
+                oModel.bindList("/Customers").resetChanges().then(() => {
+                    if(this.bCreate) {
+                        this.onNavBack();
+                    } else {
+                        this._toggleEdit(false);
+                    }
+                });
             },
 
             onEditPressed: function () {
@@ -89,10 +109,15 @@ sap.ui.define([
             },
 
             _onPatternMatched: function(oEvent){
+                this.bCreate = false;
+
                 let sPath = oEvent.getParameters().arguments.path;
                 this.sCustomerPath = "/" + sPath;
+                console.log(this.sCustomerPath);
                 this.getView().bindElement(this.sCustomerPath);
-                // this.getView().getElementBinding().refresh(true);
+
+                this.getView().getModel("editModel").setProperty("/editMode", false);
+                this._showCustomerFragment("DisplayCustomer");
             },
 
             genderFormatter: function (sKey) {

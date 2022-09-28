@@ -1,5 +1,4 @@
 <mvc:View
-    id="mainViewId"
 	controllerName="ai.clouddna.training00.zhoui5.controller.Main"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
@@ -62,7 +61,7 @@
                             <Text id="firstnameText" text="{FirstName}" />
                             <Text id="lastnameText" text="{LastName}" />
                             <Text id="titleText" text="{AcademicTitle}" />
-                            <Text id="genderText" text="{= ${Gender} === 'female' ? ${i18n>female} : ${i18n>male}}" />
+                            <Text id="genderText" text="{= ${Gender} === 'Female' ? ${i18n>female} : ${i18n>male}}" />
                             <Text id="emailText" text="{Email}" />
                             <Text id="phoneText" text="{Phone}" />
                             <Link id="websiteText" text="{Website}" href="https://{Website}" target="_blank" />

@@ -25,39 +25,39 @@
 		<f:content>
 			<!-- Customer Id Input Field -->
 			<Label id="edit_label_customerid" text="{i18n>app.customerId}" labelFor="edit_text_customerid" />
-			<Input id="edit_input_customerid" value="{/customerid}" />
+			<Input id="edit_input_customerid" value="{CustomerId}" />
 
 			<!-- First Name Input Field -->
 			<Label id="edit_label_firstname" text="{i18n>app.firstname}" labelFor="edit_text_firstname" />
-			<Input id="edit_input_firstname" value="{/firstname}" />
+			<Input id="edit_input_firstname" value="{FirstName}" />
 
 			<!-- Last Name Input Field -->
 			<Label id="edit_label_lastname" text="{i18n>app.lastname}" labelFor="edit_text_lastname" />
-			<Input id="edit_input_lastname" value="{/lastname}" />
+			<Input id="edit_input_lastname" value="{LastName}" />
 
 			<!-- Title Input Field -->
 			<Label id="edit_label_title" text="{i18n>app.title}" labelFor="edit_text_title" />
-			<Input id="edit_input_title" value="{/title}" />
+			<Input id="edit_input_title" value="{AcademicTitle}" />
 
 			<!-- Gender Input Field -->
 			<Label id="edit_label_gender" text="{i18n>app.gender}" labelFor="edit_select_gender" />
-			<Select id="edit_select_gender" selectedKey="{/gender}" items="{genderModel>/genders}">
+			<Select id="edit_select_gender" selectedKey="{Gender}" items="{genderModel>/genders}">
 				<items>
-					<c:Item id="genderId" key="{genderModel>}" text="{path: 'genderModel>', formatter: '.genderFormatter'}" />
+					<c:Item id="genderId" key="{genderModel>key}" text="{path: 'genderModel>text', formatter: '.genderFormatter'}" />
 				</items>
 			</Select>
 
 			<!-- Email Input Field -->
 			<Label id="edit_label_email" text="{i18n>app.email}" labelFor="edit_text_email" />
-			<Input id="edit_input_email" value="{/email}" />
+			<Input id="edit_input_email" value="{Email}" />
 
 			<!-- Phone Input Field -->
 			<Label id="edit_label_phone" text="{i18n>app.phone}" labelFor="edit_text_phone" />
-			<Input id="edit_input_phone" value="{/phone}" />
+			<Input id="edit_input_phone" value="{Phone}" />
 
 			<!-- Website Input Field -->
 			<Label id="edit_label_website" text="{i18n>app.website}" labelFor="edit_text_website" />
-			<Input id="edit_input_website" value="{/website}" />
+			<Input id="edit_input_website" value="{Website}" />
 		</f:content>
 	</f:SimpleForm>
 </c:FragmentDefinition>

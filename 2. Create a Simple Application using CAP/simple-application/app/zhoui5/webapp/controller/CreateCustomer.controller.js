@@ -23,9 +23,25 @@ sap.ui.define([
             onInit: function () {
             },
 
+            getFormData: function () {
+
+            },
+
+            clearFormData: function () {
+                let FirstName = this.byId("edit_input_firstname").setValue();
+                let LastName = this.byId("edit_input_lastname").setValue();
+                let AcademicTitle = this.byId("edit_input_title").setValue();
+                let GenderSelect = this.byId("edit_select_gender");
+                let SelectedGender = GenderSelect.setSelectedItem(1);
+                let Email = this.byId("edit_input_email").setValue();
+                let Phone = this.byId("edit_input_phone").setValue();
+                let Website = this.byId("edit_input_website").setValue();
+            },
+
             onCancelPressed: function () {
                 let oModel = this.getView().getModel();
                 oModel.bindList("/Customers").resetChanges().then(() => {
+                    this.clearFormData();
                     this.onNavBack();
                 });
             },
@@ -60,6 +76,7 @@ sap.ui.define([
                 oNewCustomerContextCreated.created().then(() => {
                     MessageBox.success(sSuccessText, {
                         onClose: () => {
+                            this.clearFormData();
                             this.onNavBack();
                         }
                     });

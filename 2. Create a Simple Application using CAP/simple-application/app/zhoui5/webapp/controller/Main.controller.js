@@ -11,6 +11,8 @@ sap.ui.define([
 
         return Controller.extend("ai.clouddna.training00.zhoui5.controller.Main", {
             onInit: function () {
+                let oRouter = this.getOwnerComponent().getRouter();
+                oRouter.getRoute("Main").attachPatternMatched(this._onPatternMatched, this);
             },
 
             onCreatePressed: function () {
@@ -47,6 +49,10 @@ sap.ui.define([
                 });
             },
             
+            _onPatternMatched: function () {
+                this.byId("main_table").getBinding("items").refresh();
+            },
+
             onListItemPressed: function (oEvent) {
                 // let oItem, oCtx;
                 // oItem = oEvent.getSource();
