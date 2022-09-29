@@ -54,6 +54,8 @@ sap.ui.define([
 
             onListItemPressed: function (oEvent) {
                 let sPath = oEvent.getSource().getBindingContext().getPath();
+                let test = this.byId("main_table").getBindingContext("items");
+                console.log("Test", test);
 
                 this.getRouter().navTo("Customer", {
                     path: sPath.split("/")[1]

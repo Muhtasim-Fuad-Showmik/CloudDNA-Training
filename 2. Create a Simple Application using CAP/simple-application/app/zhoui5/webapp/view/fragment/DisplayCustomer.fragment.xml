@@ -41,7 +41,7 @@
 
 			<!-- Gender Text Field -->
 			<Label id="display_label_gender" text="{i18n>app.gender}" labelFor="display_select_gender" />
-            <Text id="display_text_gender" text="{= ${Gender} === 'female' ? ${i18n>female} : ${i18n>male}}"/>
+            <Text id="display_text_gender" text="{= ${Gender} === '1' ? ${i18n>female} : ${i18n>male}}"/>
 
 			<!-- Email Text Field -->
 			<Label id="display_label_email" text="{i18n>app.email}" labelFor="display_text_email" />
