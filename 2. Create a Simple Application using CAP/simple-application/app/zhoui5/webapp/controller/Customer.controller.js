@@ -4,7 +4,8 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
     "sap/ui/core/routing/History",
-    "ai/clouddna/training00/zhoui5/controller/formatter/Formatter"
+    "ai/clouddna/training00/zhoui5/controller/formatter/Formatter",
+    "sap/ui/model/odata/v4/ODataModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -24,62 +25,12 @@ sap.ui.define([
                     editMode: false
                 });
 
-                let oCustomerModel = new JSONModel({
-                    CustomerId: 0,
-                    FirstName: "First",
-                    LastName: "Last",
-                    AcademicTitle: "Title",
-                    Gender: "0",
-                    Email: "Email",
-                    Phone: "Phone",
-                    Website: "Website"
-                });
-
                 this.setModel(oEditModel, "editModel");
-                this.setModel(oCustomerModel, "customerModel");
 
                 this._showCustomerFragment("DisplayCustomer");
 
                 this.getRouter().getRoute("Customer").attachPatternMatched(this._onPatternMatched, this);
 
-            },
-
-            getFormData: function (sPropertyName, sType="Input") {
-                if(sPropertyName) {
-                    let propertyValue = "";
-
-                    if(sType === "Input") {
-                        propertyValue = this.byId("ChangeCustomer--edit_input_" + sPropertyName).getValue();
-                    }
-
-                    if(sType === "Select") {
-                        propertyValue = this.byId("ChangeCustomer--edit_select_" + sPropertyName).getSelectedItem().getKey();
-                    }
-
-                    return propertyValue;
-                } else {
-                    let FirstName = this.byId("ChangeCustomer--edit_input_firstname").getValue();
-                    let LastName = this.byId("ChangeCustomer--edit_input_lastname").getValue();
-                    let AcademicTitle = this.byId("ChangeCustomer--edit_input_title").getValue();
-                    let GenderSelect = this.byId("ChangeCustomer--edit_select_gender");
-                    let SelectedGender = GenderSelect.getSelectedItem();
-                    let Gender = SelectedGender ? SelectedGender.getKey() : "0";
-                    let Email = this.byId("ChangeCustomer--edit_input_email").getValue();
-                    let Phone = this.byId("ChangeCustomer--edit_input_phone").getValue();
-                    let Website = this.byId("ChangeCustomer--edit_input_website").getValue();
-    
-                    let customerData = {
-                        FirstName: FirstName,
-                        LastName: LastName,
-                        AcademicTitle: AcademicTitle,
-                        Gender: Gender,
-                        Email: Email,
-                        Phone: Phone,
-                        Website: Website
-                    };
-    
-                    return customerData;
-                }
             },
 
             _showCustomerFragment: function (sFragmentName) {
@@ -107,13 +58,12 @@ sap.ui.define([
             },
 
             onCancelPressed: function () {
-                this.getModel().bindList("/Customers").resetChanges().then(() => {
-                    if(this.bCreate) {
-                        this.onNavBack();
-                    } else {
-                        this._toggleEdit(false);
-                    }
-                });
+                if(this.bCreate) {
+                    this.onNavBack();
+                } else {
+                    this.getModel().resetChanges("customerGroup");
+                    this._toggleEdit(false);
+                }
             },
 
             onEditPressed: function () {
@@ -121,34 +71,11 @@ sap.ui.define([
             },
 
             onSavePressed: function() {
-            },
-
-            onFirstNameChanged: function () {
-                this.updateJSONBoundForm("firstname");
-            },
-
-            onLastNameChanged: function () {
-                this.updateJSONBoundForm("lastname");
-            },
-
-            onTitleChanged: function () {
-                this.updateJSONBoundForm("title");
-            },
-
-            onGenderChanged: function () {
-                this.updateJSONBoundForm("gender", "Select");
-            },
-
-            onEmailChanged: function () {
-                this.updateJSONBoundForm("email");
-            },
-
-            onPhoneChanged: function () {
-                this.updateJSONBoundForm("phone");
-            },
-
-            onWebsiteChanged: function () {
-                this.updateJSONBoundForm("website");
+                this.getModel().submitBatch("customerGroup").then(() => {
+                    this._toggleEdit(false);
+                }, (oError) => {
+                    console.log(oError);
+                });
             },
 
             onNavBack: function () {
@@ -162,24 +89,15 @@ sap.ui.define([
                 }
             },
 
-            updateJSONBoundForm: function (sFieldName, sType = "Input") {
-                if (sType === "Input"){
-                    let fieldValue = this.getFormData(sFieldName);
-                    this.byId("ChangeCustomer--editjson_input_" + sFieldName).setValue(fieldValue);
-                }
-
-                if (sType === "Select") {
-                    let fieldValue = this.getFormData(sFieldName, sType);
-                    this.byId("ChangeCustomer--editjson_select_" + sFieldName).setSelectedKey(fieldValue);
-                }
-            },
-
             _onPatternMatched: function(oEvent){
                 this.bCreate = false;
 
                 let sPath = oEvent.getParameters().arguments.path;
                 this.sCustomerPath = "/" + sPath;
-                this.getView().bindElement(this.sCustomerPath);
+                this.getView().bindElement({
+                    path: this.sCustomerPath,
+                    parameters: {$$updateGroupId: 'customerGroup'}
+                });
 
                 this.getModel("editModel").setProperty("/editMode", false);
                 this._showCustomerFragment("DisplayCustomer");

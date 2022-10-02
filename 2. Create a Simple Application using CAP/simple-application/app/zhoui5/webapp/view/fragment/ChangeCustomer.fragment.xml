@@ -23,74 +23,21 @@
 		singleContainerFullSize="false"
 	>
 		<f:content>
-			<!-- Visible Fields -->
-
-			<!-- First Name Input Field -->
-			<Label id="editjson_label_firstname" text="{i18n>app.firstname}" labelFor="editjson_text_firstname" />
-			<Input id="editjson_input_firstname" value="{customerModel>/FirstName}" />
-
-			<!-- Last Name Input Field -->
-			<Label id="editjson_label_lastname" text="{i18n>app.lastname}" labelFor="editjson_text_lastname" />
-			<Input id="editjson_input_lastname" value="{customerModel>/LastName}" />
-
-			<!-- Title Input Field -->
-			<Label id="editjson_label_title" text="{i18n>app.title}" labelFor="editjson_text_title" />
-			<Input id="editjson_input_title" value="{customerModel>/AcademicTitle}" />
-
-			<!-- Gender Input Field -->
-			<Label id="editjson_label_gender" text="{i18n>app.gender}" labelFor="editjson_select_gender" />
-			<Select id="editjson_select_gender" selectedKey="{customerModel>/Gender}" items="{genderModel>/genders}">
-				<items>
-					<c:Item id="genderjsonId" key="{genderModel>key}" 
-						text="{path: 'genderModel>text', formatter: '.formatter.genderFormatter'}" />
-				</items>
-			</Select>
-
-			<!-- Email Input Field -->
-			<Label id="editjson_label_email" text="{i18n>app.email}" labelFor="editjson_text_email" />
-			<Input id="editjson_input_email" value="{customerModel>/Email}" />
-
-			<!-- Phone Input Field -->
-			<Label id="editjson_label_phone" text="{i18n>app.phone}" labelFor="editjson_text_phone" />
-			<Input id="editjson_input_phone" value="{customerModel>/Phone}" />
-
-			<!-- Website Input Field -->
-			<Label id="editjson_label_website" text="{i18n>app.website}" labelFor="editjson_text_website" />
-			<Input id="editjson_input_website" value="{customerModel>/Website}" />
-
-			<!-- InvisibleFields -->
-
 			<!-- First Name Input Field -->
 			<Label id="edit_label_firstname" text="{i18n>app.firstname}" labelFor="edit_text_firstname" />
-			<Input id="edit_input_firstname" value="{	
-				path: 'FirstName',
-				events: {
-					change: '.onFirstNameChanged'
-				}}" />
+			<Input id="edit_input_firstname" value="{FirstName}" />
 
 			<!-- Last Name Input Field -->
 			<Label id="edit_label_lastname" text="{i18n>app.lastname}" labelFor="edit_text_lastname" />
-			<Input id="edit_input_lastname" value="{	
-				path: 'LastName',
-				events: {
-					change: '.onLastNameChanged'
-				}}" />
+			<Input id="edit_input_lastname" value="{LastName}" />
 
 			<!-- Title Input Field -->
 			<Label id="edit_label_title" text="{i18n>app.title}" labelFor="edit_text_title" />
-			<Input id="edit_input_title" value="{	
-				path: 'AcademicTitle',
-				events: {
-					change: '.onTitleChanged'
-				}}" />
+			<Input id="edit_input_title" value="{AcademicTitle}" />
 
 			<!-- Gender Input Field -->
 			<Label id="edit_label_gender" text="{i18n>app.gender}" labelFor="edit_select_gender" />
-			<Select id="edit_select_gender" selectedKey="{	
-				path: 'Gender',
-				events: {
-					change: '.onGenderChanged'
-				}}" items="{genderModel>/genders}">
+			<Select id="edit_select_gender" selectedKey="{Gender}" items="{genderModel>/genders}">
 				<items>
 					<c:Item id="genderId" key="{genderModel>key}" 
 						text="{path: 'genderModel>text', formatter: '.formatter.genderFormatter'}" />
@@ -99,27 +46,15 @@
 
 			<!-- Email Input Field -->
 			<Label id="edit_label_email" text="{i18n>app.email}" labelFor="edit_text_email" />
-			<Input id="edit_input_email" value="{	
-				path: 'Email',
-				events: {
-					change: '.onEmailChanged'
-				}}" />
+			<Input id="edit_input_email" value="{Email}" />
 
 			<!-- Phone Input Field -->
 			<Label id="edit_label_phone" text="{i18n>app.phone}" labelFor="edit_text_phone" />
-			<Input id="edit_input_phone" value="{	
-				path: 'Phone',
-				events: {
-					change: '.onPhoneChanged'
-				}}" />
+			<Input id="edit_input_phone" value="{Phone}" />
 
 			<!-- Website Input Field -->
 			<Label id="edit_label_website" text="{i18n>app.website}" labelFor="edit_text_website" />
-			<Input id="edit_input_website" value="{	
-				path: 'Website',
-				events: {
-					change: '.onWebsiteChanged'
-				}}" />
+			<Input id="edit_input_website" value="{Website}" />
 		</f:content>
 	</f:SimpleForm>
 </c:FragmentDefinition>
